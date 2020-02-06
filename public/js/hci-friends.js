@@ -9,6 +9,7 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
+	$("a.name").click(projectClick);
 	console.log("Javascript connected!");
 }
 
@@ -43,4 +44,13 @@ function anagrammedName(name) {
 		console.log(name + " not known for anagramming.");
 		return name;
 	}
+}
+
+function projectClick(e) { 
+    // prevent the page from reloading      
+    e.preventDefault();
+    var name = $.trim($(this).text());
+    var anaName = anagrammedName(name);
+    $(this).text(anaName);
+    
 }
